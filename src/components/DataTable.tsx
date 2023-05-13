@@ -6,16 +6,18 @@ import {
   GridColDef,
   GridValueGetterParams,
   GridRenderCellParams,
+  GridToolbar,
 } from "../lib/mui-x-data-grid";
-import { MockDataTeamType } from "@/types/_types";
+import { MockDataContactsType, MockDataInvoicesType, MockDataTeamType } from "@/types/_types";
 import { tokens } from "./Theme";
 
 interface DataTableProps {
-  rows: MockDataTeamType[];
+  rows: MockDataTeamType[] | MockDataContactsType[] | MockDataInvoicesType[];
   columns: GridColDef[];
+  contacts?: Boolean;
 }
 
-export default function DataTable({ rows, columns }: DataTableProps) {
+export default function DataTable({ rows, columns, contacts }: DataTableProps) {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   return (
@@ -33,6 +35,8 @@ export default function DataTable({ rows, columns }: DataTableProps) {
           color: colors.greenAccent[300],
         },
         "& .MuiDataGrid-columnHeaders": {
+          borderBottom: "none",
+
           backgroundColor: colors.blueAccent[700],
         },
         "& .MuiDataGrid-virtualScroller": {
@@ -42,9 +46,16 @@ export default function DataTable({ rows, columns }: DataTableProps) {
           borderTop: "none",
           backgroundColor: colors.blueAccent[700],
         },
+        "& .MuiDataGrid-toolbarContainer .MuiButton-text": {
+          color: `${colors.grey[100]} !important`,
+        },
       }}
     >
-      <DataGrid rows={rows} columns={columns} />
+      <DataGrid
+        rows={rows}
+        columns={columns}
+        slots={{ toolbar: contacts && GridToolbar }}
+      />
     </Box>
   );
 }
