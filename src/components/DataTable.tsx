@@ -8,16 +8,26 @@ import {
   GridRenderCellParams,
   GridToolbar,
 } from "../lib/mui-x-data-grid";
-import { MockDataContactsType, MockDataInvoicesType, MockDataTeamType } from "@/types/_types";
+import {
+  MockDataContactsType,
+  MockDataInvoicesType,
+  MockDataTeamType,
+} from "@/types/_types";
 import { tokens } from "./Theme";
 
 interface DataTableProps {
   rows: MockDataTeamType[] | MockDataContactsType[] | MockDataInvoicesType[];
   columns: GridColDef[];
   contacts?: Boolean;
+  invoice?: boolean;
 }
 
-export default function DataTable({ rows, columns, contacts }: DataTableProps) {
+export default function DataTable({
+  rows,
+  columns,
+  contacts,
+  invoice,
+}: DataTableProps) {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   return (
@@ -49,11 +59,15 @@ export default function DataTable({ rows, columns, contacts }: DataTableProps) {
         "& .MuiDataGrid-toolbarContainer .MuiButton-text": {
           color: `${colors.grey[100]} !important`,
         },
+        "& .MuiCheckbox-root ": {
+          color: `${invoice && colors.greenAccent[200]} !important`,
+        },
       }}
     >
       <DataGrid
         rows={rows}
         columns={columns}
+        checkboxSelection={invoice && true}
         slots={{ toolbar: contacts && GridToolbar }}
       />
     </Box>

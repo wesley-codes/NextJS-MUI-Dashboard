@@ -65,3 +65,14 @@ export type MockLineDataType = {
   id: String;
   data: LineDataType[];
 };
+
+
+
+export type initialValuesTypes = {
+  firstName: String;
+  lastName: String;
+  email: String;
+  contact: String;
+  address1: String;
+  address2: String;
+};
