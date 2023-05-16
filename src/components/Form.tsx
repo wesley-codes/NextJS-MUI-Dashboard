@@ -32,8 +32,8 @@ interface FormType {
 export default function Form({ initialValues, userSchema }: FormType) {
   const isNotMobile = useMediaQuery("(min-width:600px)");
 
-  const handleForm = (values:initialValuesTypes) => {
-    console.log(values)
+  const handleForm = (values: initialValuesTypes) => {
+    console.log(values);
   };
   return (
     <Formik
@@ -70,7 +70,7 @@ export default function Form({ initialValues, userSchema }: FormType) {
               value={values.firstName}
               name="firstName"
               error={!!touched.firstName && !!errors.firstName}
-            //   helperText={!!touched.firstName && errors.firstName}
+              helperText={!!touched.firstName && `${errors.firstName}`}
               sx={{
                 gridColumn: "span 2",
               }}
@@ -85,7 +85,7 @@ export default function Form({ initialValues, userSchema }: FormType) {
               value={values.lastName}
               name="lastName"
               error={!!touched.lastName && !!errors.lastName}
-            //   helperText={!!touched.lastName && errors.lastName}
+              helperText={!!touched.lastName && `${errors.lastName}`}
               sx={{
                 gridColumn: "span 2",
               }}
@@ -100,7 +100,7 @@ export default function Form({ initialValues, userSchema }: FormType) {
               value={values.email}
               name="email"
               error={!!touched.email && !!errors.email}
-            //   helperText={!!touched.email && errors.email}
+              helperText={!!touched.email && `${errors?.email}`}
               sx={{
                 gridColumn: "span 4",
               }}
@@ -115,7 +115,7 @@ export default function Form({ initialValues, userSchema }: FormType) {
               value={values.contact}
               name="contact"
               error={!!touched.contact && !!errors.contact}
-            //   helperText={!!touched.contact && errors.contact}
+              helperText={!!touched.contact && `${errors.contact}`}
               sx={{
                 gridColumn: "span 4",
               }}
@@ -130,7 +130,7 @@ export default function Form({ initialValues, userSchema }: FormType) {
               value={values.address1}
               name="address1"
               error={!!touched.address1 && !!errors.address1}
-            //   helperText={!!touched.address1 && errors.address1}
+              helperText={!!touched.address1 && `${errors.address1}`}
               sx={{
                 gridColumn: "span 4",
               }}
@@ -145,7 +145,7 @@ export default function Form({ initialValues, userSchema }: FormType) {
               value={values.address2}
               name="address2"
               error={!!touched.address2 && !!errors.address2}
-            //   helperText={!!touched.address2 && errors.address2}
+              helperText={!!touched.address2 && `${errors.address2}`}
               sx={{
                 gridColumn: "span 4",
               }}
