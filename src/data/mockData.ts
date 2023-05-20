@@ -1,3 +1,4 @@
+import { BarDatum } from "@nivo/bar";
 import {
     MockDataTeamType,
     MockDataContactsType,
@@ -326,7 +327,7 @@ import {
     },
   ];
   
-  export const mockBarData: MockBarDataType[] = [
+  export const mockBarData: BarDatum[] = [
     {
       country: "AD",
       "hot dog": 137,
@@ -406,7 +407,7 @@ import {
     },
   ];
   
-  export const mockPieData: MockPieDataType[] = [
+  export const mockPieData: BarDatum[] = [
     {
       id: "hack",
       label: "hack",

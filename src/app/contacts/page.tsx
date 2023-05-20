@@ -10,7 +10,7 @@ export default function page() {
   return (
     <Box m="20px">
       <Header title="Contacts" subtitle="Meet up with contacts" />
-      <DataTable columns={contactColumn} rows={mockDataContacts} contacts/>
+      <DataTable columns={contactColumn} rows={mockDataContacts} contacts />
     </Box>
   );
 }

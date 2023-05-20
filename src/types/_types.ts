@@ -49,6 +49,11 @@ export type MockBarDataType = {
   donutColor: String;
 };
 
+
+
+
+
+
 export type MockPieDataType = {
   id: String;
   label: String;

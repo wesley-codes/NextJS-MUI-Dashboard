@@ -12,5 +12,4 @@ export default function page() {
   );
 }
 
-// import { formatDate } from '@fullcalendar/core';
-// import FullCalendar from '@fullcalendar/react";
+
