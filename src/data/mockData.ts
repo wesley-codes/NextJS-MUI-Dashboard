@@ -1,3 +1,4 @@
+"use client"
 import { BarDatum } from "@nivo/bar";
 import {
     MockDataTeamType,
@@ -9,6 +10,7 @@ import {
     MockLineDataType,
   } from "../types/_types";
   import React from "react";
+import { tokens } from "@/components/Theme";
   
   export const mockDataTeam: MockDataTeamType[] = [
     {
@@ -443,7 +445,7 @@ import {
   export const mockLineData: MockLineDataType[] = [
     {
       id: "japan",
-      //   color: tokens("dark").greenAccent[500],
+        color: tokens("dark").greenAccent[500],
       data: [
         {
           x: "plane",
@@ -497,7 +499,7 @@ import {
     },
     {
       id: "france",
-      //   color: tokens("dark").blueAccent[300],
+        color: tokens("dark").blueAccent[300],
       data: [
         {
           x: "plane",
@@ -551,7 +553,7 @@ import {
     },
     {
       id: "us",
-      //   color: tokens("dark").redAccent[200],
+        color: tokens("dark").redAccent[200],
       data: [
         {
           x: "plane",

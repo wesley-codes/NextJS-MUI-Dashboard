@@ -3,6 +3,11 @@ import React from "react";
 import { Box, useTheme, Typography } from "../lib/mui";
 import { BarDatum } from "@nivo/bar";
 import { tokens } from "./Theme";
+import { PointTooltipProps, SliceTooltip, SliceTooltipProps } from "@nivo/line";
+
+// interface TooltipProps {
+//   datum: PieTooltipProps<BarDatum> | SliceTooltipProps
+// }
 
 const Tooltip = ({ datum }: PieTooltipProps<BarDatum>) => {
   const theme = useTheme();
@@ -16,7 +21,7 @@ const Tooltip = ({ datum }: PieTooltipProps<BarDatum>) => {
         width: "80px",
         padding: "5px",
         borderRadius: "8px",
-        alignItems:"center"
+        alignItems: "center",
       }}
     >
       <Box
@@ -25,7 +30,7 @@ const Tooltip = ({ datum }: PieTooltipProps<BarDatum>) => {
           height: "15px",
           width: "15px",
           borderRadius: "50px",
-          margin:"0 5px"
+          margin: "0 5px",
         }}
       ></Box>
       <Box>

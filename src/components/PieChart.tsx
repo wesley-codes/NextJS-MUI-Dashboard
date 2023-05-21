@@ -6,6 +6,8 @@ import { useTheme } from "../lib/mui";
 import { tokens } from "./Theme";
 import Tooltip from "./Tooltip";
 import { BarDatum } from "@nivo/bar";
+
+import { PointTooltipProps, SliceTooltipProps } from "@nivo/line";
 export default function PieChart() {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
@@ -64,6 +66,7 @@ export default function PieChart() {
       tooltip={(point: PieTooltipProps<BarDatum>) => (
         <Tooltip datum={point.datum} />
       )}
+      
       defs={[
         {
           id: "dots",

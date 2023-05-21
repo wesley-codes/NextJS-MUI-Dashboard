@@ -5,7 +5,7 @@ import { Box } from "../../lib/mui";
 export default function page() {
   return (
     <Box m="20px">
-      <Header title="Bar Chart" subtitle="Simple Bar Chart" />
+      <Header title="Bar Chart" subtitle="A simple Bar Chart" />
       <Box height="75vh">
         <BarChart isDashboard={false} />
       </Box>

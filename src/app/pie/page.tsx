@@ -5,7 +5,7 @@ import Header from "@/components/Header";
 export default function page() {
   return (
     <Box m="20px">
-      <Header title="Pie Chart" subtitle="" />
+      <Header title="Pie Chart" subtitle="A simple pie chart" />
       <Box height="75vh" display="flex" justifyContent="center">
         <PieChart />
       </Box>

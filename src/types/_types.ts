@@ -1,4 +1,4 @@
-import { BarTooltipProps } from "@nivo/bar/dist/types/types";
+import { BarDatum } from "@nivo/bar";
 import react from "react";
 
 export type MockDataTeamType = {
@@ -50,7 +50,6 @@ export type MockBarDataType = {
   donutColor: String;
 };
 
-
 export type MockPieDataType = {
   id: String;
   label: String;
@@ -64,11 +63,11 @@ type LineDataType = {
 };
 
 export type MockLineDataType = {
-  id: String;
-  data: LineDataType[];
+  id: string | number;
+
+  color: string;
+  data: BarDatum[];
 };
-
-
 
 export type initialValuesTypes = {
   firstName: String;
