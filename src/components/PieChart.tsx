@@ -1,10 +1,11 @@
 "use client";
 import React from "react";
-import { ResponsivePie } from "@nivo/pie";
+import { PieTooltipProps, ResponsivePie } from "@nivo/pie";
 import { mockPieData as data } from "@/data/mockData";
 import { useTheme } from "../lib/mui";
 import { tokens } from "./Theme";
 import Tooltip from "./Tooltip";
+import { BarDatum } from "@nivo/bar";
 export default function PieChart() {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
@@ -60,7 +61,9 @@ export default function PieChart() {
         from: "color",
         modifiers: [["darker", 2]],
       }}
-      tooltip={<Tooltip />}
+      tooltip={(point: PieTooltipProps<BarDatum>) => (
+        <Tooltip datum={point.datum} />
+      )}
       defs={[
         {
           id: "dots",
