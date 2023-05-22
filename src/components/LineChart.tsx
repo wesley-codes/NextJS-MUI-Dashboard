@@ -2,17 +2,21 @@
 import React from "react";
 import { Box, useTheme, Typography } from "../lib/mui";
 import { tokens } from "./Theme";
-import { ComputedDatum, PointTooltipProps, ResponsiveLine } from "@nivo/line";
+import { ResponsiveLine } from "@nivo/line";
 import { mockLineData as data } from "@/data/mockData";
-import Tooltip from "./Tooltip";
-import { BarDatum } from "@nivo/bar";
-export default function LineChart() {
+
+interface LineChartProps {
+  isDashboard: Boolean;
+}
+
+export default function LineChart({ isDashboard = false }: LineChartProps) {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
   return (
     <ResponsiveLine
       data={data}
+      colors={isDashboard ? { datum: "color" } : { scheme: "nivo" }}
       theme={{
         axis: {
           domain: {
@@ -40,9 +44,13 @@ export default function LineChart() {
             fill: colors.grey[100],
           },
         },
+        tooltip: {
+          container: {
+            color: colors.primary[500],
+          },
+        },
       }}
       tooltip={({ point }) => {
-        console.log("===", point);
         return (
           <Box
             sx={{
@@ -88,15 +96,16 @@ export default function LineChart() {
         tickSize: 5,
         tickPadding: 5,
         tickRotation: 0,
-        legend: "transportation",
+        legend: isDashboard ? undefined : "transportation",
         legendOffset: 36,
         legendPosition: "middle",
       }}
       axisLeft={{
         tickSize: 5,
         tickPadding: 5,
+        tickValues: 5,
         tickRotation: 0,
-        legend: "count",
+        legend: isDashboard ? undefined : "count",
         legendOffset: -40,
         legendPosition: "middle",
       }}

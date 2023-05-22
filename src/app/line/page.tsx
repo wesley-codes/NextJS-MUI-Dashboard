@@ -7,7 +7,7 @@ export default function page() {
     <Box m="20px">
       <Header title="Line Chart" subtitle="A simple Line chart" />
       <Box height="75vh">
-        <LineChart />
+        <LineChart isDashboard={false}/>
       </Box>
     </Box>
   );

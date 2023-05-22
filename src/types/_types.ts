@@ -77,3 +77,27 @@ export type initialValuesTypes = {
   address1: String;
   address2: String;
 };
+ export type GeoFeaturesType= {
+  type: string;
+  features: ({
+      type: string;
+      properties: {
+          name: string;
+      };
+      geometry: {
+          type: string;
+          coordinates: number[][][];
+      };
+      id: string;
+  } | {
+      type: string;
+      properties: {
+          name: string;
+      };
+      geometry: {
+          type: string;
+          coordinates: number[][][][];
+      };
+      id: string;
+  })[];
+}

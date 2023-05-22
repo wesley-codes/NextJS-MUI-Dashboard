@@ -3,11 +3,8 @@ import React from "react";
 import { Box, useTheme, Typography } from "../lib/mui";
 import { BarDatum } from "@nivo/bar";
 import { tokens } from "./Theme";
-import { PointTooltipProps, SliceTooltip, SliceTooltipProps } from "@nivo/line";
 
-// interface TooltipProps {
-//   datum: PieTooltipProps<BarDatum> | SliceTooltipProps
-// }
+
 
 const Tooltip = ({ datum }: PieTooltipProps<BarDatum>) => {
   const theme = useTheme();
