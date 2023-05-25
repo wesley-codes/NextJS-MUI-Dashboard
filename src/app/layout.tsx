@@ -6,7 +6,7 @@ import { CssBaseline, ThemeProvider } from "@mui/material";
 import { ProSidebarProvider } from "react-pro-sidebar";
 import SideBar from "@/components/Sidebar";
 import { Box } from "@mui/material";
-import TopBar from "@/components/Topbar";
+import TopBar from "@/components/TopBar";
 const pathwayExtreme = Pathway_Extreme({ subsets: ["latin"] });
 
 const metadata = {
@@ -23,7 +23,10 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body className={pathwayExtreme.className}>
+      <body
+        className={pathwayExtreme.className}
+        suppressHydrationWarning={true}
+      >
         <ColorModeContext.Provider value={colorMode}>
           <ThemeProvider theme={theme}>
             <CssBaseline />

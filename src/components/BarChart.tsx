@@ -9,7 +9,7 @@ interface BarchartProps {
   isDashboard: Boolean;
 }
 
-export default function BarChart({ isDashboard = false }: BarchartProps) {
+export default function BarChart({ isDashboard  }: BarchartProps) {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   return (

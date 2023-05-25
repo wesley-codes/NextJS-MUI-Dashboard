@@ -9,7 +9,7 @@ interface LineChartProps {
   isDashboard: Boolean;
 }
 
-export default function LineChart({ isDashboard = false }: LineChartProps) {
+export default function LineChart({ isDashboard  }: LineChartProps) {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
