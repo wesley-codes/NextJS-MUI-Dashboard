@@ -1,7 +1,7 @@
 "use client";
 import "./globals.css";
 import { Pathway_Extreme } from "next/font/google";
-import { ColorModeContext, useMode } from "@/components/Theme";
+import {  ColorModeContext, useMode } from "@/components/Theme";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { ProSidebarProvider } from "react-pro-sidebar";
 import SideBar from "@/components/Sidebar";
@@ -45,3 +45,6 @@ export default function RootLayout({
     </html>
   );
 }
+
+
+

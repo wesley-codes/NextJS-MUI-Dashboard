@@ -1,6 +1,8 @@
-"use client"
+"use client";
 import { createContext, useState, useMemo } from "react";
-import { createTheme } from "../lib/mui";
+//import { SxProps, createTheme } from "../lib/mui";
+import { createTheme, Theme } from "@mui/material/styles";
+
 import { Pathway_Extreme, Source_Sans_Pro } from "next/font/google";
 
 const pathwayExtreme = Pathway_Extreme({ subsets: ["latin"] });
@@ -9,8 +11,10 @@ const sourceSansPro = Source_Sans_Pro({
   weight: ["200", "300", "400", "600"],
 });
 
+type ColorMode = "light" | "dark";
+
 // color design tokens export
-export const tokens = (mode: String) => ({
+export const tokens = (mode: ColorMode) => ({
   ...(mode === "dark"
     ? {
         grey: {
@@ -130,7 +134,7 @@ export const tokens = (mode: String) => ({
 
 //mui theme settings
 
-export const themeSetting = (mode: String) => {
+export const themeSetting = (mode: ColorMode) => {
   const colors = tokens(mode);
 
   return {
@@ -199,22 +203,22 @@ export const themeSetting = (mode: String) => {
         fontSize: 14,
       },
     },
+    toggleColorMode: () => {},
   };
 };
 
-//Context
-
-type ColorContextType = {
+// context for color mode
+export interface ColorModeContextType {
   toggleColorMode: () => void;
-};
+}
 
-export const ColorModeContext = createContext<ColorContextType>({
+export const ColorModeContext = createContext<ColorModeContextType>({
   toggleColorMode: () => {},
 });
 
-export const useMode = () => {
-  const [mode, setMode] = useState("dark");
-  const colorMode = useMemo(
+export const useMode = (): [Theme, ColorModeContextType] => {
+  const [mode, setMode] = useState<ColorMode>("dark");
+  const colorMode = useMemo<ColorModeContextType>(
     () => ({
       toggleColorMode: () =>
         setMode((prev) => (prev === "light" ? "dark" : "light")),
@@ -222,7 +226,7 @@ export const useMode = () => {
     []
   );
 
-  const theme = useMemo(() => createTheme(themeSetting(mode)), [mode]);
+  const theme = useMemo<Theme>(() => createTheme(themeSetting(mode)), [mode]);
 
   return [theme, colorMode];
 };
